@@ -13,6 +13,7 @@ const ScSvg = styled.svg`
 export default function LucidLogo({ width }) {
   return (
     <ScSvg
+      data-test-id="logo"
       width={width}
       version="1.1"
       id="Layer_1"

@@ -14,7 +14,7 @@ const ScFooter = styled.footer`
 
 export default function Footer() {
   return (
-    <ScFooter>
+    <ScFooter data-test-id="footer">
       <LucidLogo width="120px" />
     </ScFooter>
   );
