@@ -1,5 +1,6 @@
 import * as React from "react";
 import Quiz from "./components/Quiz";
+import Footer from "./components/Footer";
 
 export const App = () => {
   return (
@@ -8,7 +9,9 @@ export const App = () => {
     >
       <h1>Lucid</h1>
       <h2>Welcome to UI Team code assessment!</h2>
+
       <Quiz />
+      <Footer />
     </div>
   );
 };
