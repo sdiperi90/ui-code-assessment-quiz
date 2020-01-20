@@ -7,9 +7,6 @@ import { ScAppContainer } from "./components/Wrappers";
 
 export const App = () => {
   return (
-    //   <div
-    //     style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    //   >
     <ScAppContainer>
       <Header />
       {/* <h1>Lucid</h1>
@@ -20,6 +17,5 @@ export const App = () => {
 
       <Footer />
     </ScAppContainer>
-    // </div>
   );
 };
