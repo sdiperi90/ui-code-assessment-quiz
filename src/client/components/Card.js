@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const ScCard = styled.section`
+export const ScCard = styled.section.attrs({
+  "data-test-id": "card"
+})`
   background-color: white;
   width: 90%;
   height: 65vh;
