@@ -5,6 +5,7 @@ import LucidLogo from "./LucidLogo";
 const ScFooter = styled.footer`
   background-color: black;
   width: 100%;
+  height: 15vh;
   padding-top: 15px;
   padding-bottom: 60px;
   display: flex;
