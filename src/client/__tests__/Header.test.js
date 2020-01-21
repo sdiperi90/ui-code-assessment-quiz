@@ -7,7 +7,6 @@ describe("RENDERS HEADER", () => {
   it("renders Hedear", () => {
     const wrapper = shallow(<Header />);
     const header = wrapper.find("[data-test-id='header']");
-    console.log("TEST", header.debug());
     expect(header.length).toEqual(1);
   });
   it("renders logo", () => {
@@ -18,7 +17,6 @@ describe("RENDERS HEADER", () => {
 
   it("has correct styles", () => {
     const wrapper = shallow(<Header />);
-    console.log(wrapper.debug());
     expect(wrapper).toHaveStyleRule("width", "100%");
     expect(wrapper).toHaveStyleRule("background-color", "black");
   });

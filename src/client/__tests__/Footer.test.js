@@ -6,7 +6,6 @@ describe("RENDERS ELEMENTS", () => {
   it("renders Footer", () => {
     const wrapper = shallow(<Footer />);
     const footer = wrapper.find("[data-test-id='footer']");
-    console.log("TEST", footer.debug());
     expect(footer.length).toEqual(1);
   });
   it("renders logo", () => {
