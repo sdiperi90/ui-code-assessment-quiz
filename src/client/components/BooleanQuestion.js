@@ -5,24 +5,11 @@ import { ScButton } from "./elements/Button";
 import { shuffleArray } from "../util";
 import { connect } from "react-redux";
 import * as actions from "../actions";
-class Multiple extends Component {
+
+class BooleanQuestion extends Component {
   state = {
-    answer: "",
-    shuffledAnswers: []
+    answer: ""
   };
-
-  componentDidMount() {
-    let {
-      question,
-      correct_answer,
-      incorrect_answers
-    } = this.props.currentQuestion;
-    let shuffledAnswers = shuffleArray([...incorrect_answers, correct_answer]);
-
-    this.setState({
-      shuffledAnswers
-    });
-  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -60,17 +47,18 @@ class Multiple extends Component {
       <div>
         <ScP fontSize="20px" dangerouslySetInnerHTML={{ __html: question }} />
         <form onSubmit={this.handleSubmit}>
-          {this.state.shuffledAnswers.map((item, index) => {
-            return (
-              <RadioButton
-                onChange={this.handleOnChange}
-                id={"option" + index}
-                key={index}
-                name={"option"}
-                value={item}
-              />
-            );
-          })}
+          <RadioButton
+            onChange={this.handleOnChange}
+            id={"boolean-1"}
+            name={"boolean"}
+            value="True"
+          />
+          <RadioButton
+            onChange={this.handleOnChange}
+            id={"boolean-2"}
+            name={"boolean"}
+            value="False"
+          />
 
           <ScButton type="submit">Next</ScButton>
         </form>
@@ -86,4 +74,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Multiple);
+export default connect(mapStateToProps, actions)(BooleanQuestion);

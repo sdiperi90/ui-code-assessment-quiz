@@ -6,6 +6,9 @@ export const fetchQuestions = () => async dispatch => {
   dispatch({ type: FETCH_QUESTIONS, payload: results.results });
   dispatch({ type: GET_QUESTIONS });
 };
+export const getQuestions = () => async dispatch => {
+  dispatch({ type: GET_QUESTIONS });
+};
 
 export const nextQuestion = questionResults => async dispatch => {
   dispatch({ type: NEXT_QUESTION, payload: questionResults });
