@@ -1,4 +1,8 @@
-import { FETCH_QUESTIONS, GET_QUESTIONS } from "../actions/constants";
+import {
+  FETCH_QUESTIONS,
+  GET_QUESTIONS,
+  NEXT_QUESTION
+} from "../actions/constants";
 import { getRandomQuestions } from "../util";
 
 export const quiz = (state = {}, action) => {
@@ -10,10 +14,17 @@ export const quiz = (state = {}, action) => {
       return {
         ...state,
         quizQuestions: randomQuestions,
+        currentQuestion: 0,
         correct: 0,
         wrong: 0,
-        questionsAnswered: 0,
+        questionsUnanswered: 0,
         totalQuestions: randomQuestions.length
+      };
+    case NEXT_QUESTION:
+      return {
+        ...state,
+        ...action.payload,
+        currentQuestion: (state.currentQuestion += 1)
       };
     default:
       return state;

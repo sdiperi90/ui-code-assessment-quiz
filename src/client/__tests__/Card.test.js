@@ -1,6 +1,6 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
-import { ScCard } from "../components/Card";
+import { ScCard } from "../components/elements/Card";
 import "jest-styled-components";
 
 describe("RENDERS CARD", () => {
@@ -14,6 +14,6 @@ describe("RENDERS CARD", () => {
     const wrapper = shallow(<ScCard />);
     expect(wrapper).toHaveStyleRule("background-color", "white");
     expect(wrapper).toHaveStyleRule("width", "90%");
-    expect(wrapper).toHaveStyleRule("height", "65vh");
+    expect(wrapper).toHaveStyleRule("min-height", "65vh");
   });
 });

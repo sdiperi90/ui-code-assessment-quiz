@@ -2,7 +2,7 @@ import * as React from "react";
 import Quiz from "./components/Quiz";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { ScCard } from "./components/Card";
+import { ScCard } from "./components/elements/Card";
 import { ScAppContainer } from "./components/Wrappers";
 
 export const App = () => {

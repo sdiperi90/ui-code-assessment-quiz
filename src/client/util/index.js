@@ -1,11 +1,11 @@
 /**
- * Represents a getting random questions from an array
- * @param {Array} arr - an array of Questons
- * @returns {Array} - Returning new set of 5 random questions.
+ * Represents shuffling an array
+ * @param {Array} arr - an array
+ * @returns {Array} - Returns new shuffled array.
  *
  */
 
-export const getRandomQuestions = arr => {
+export const shuffleArray = arr => {
   if (!Array.isArray(arr)) {
     return "argument should be an array";
   }
@@ -24,5 +24,24 @@ export const getRandomQuestions = arr => {
     newArr[j] = temp;
   }
 
+  return newArr.slice(0, 5);
+};
+
+/**
+ * Represents a getting random questions from an array
+ * @param {Array} arr - an array of Questons
+ * @returns {Array} - Returning new set of 5 random questions.
+ *
+ */
+
+export const getRandomQuestions = arr => {
+  if (!Array.isArray(arr)) {
+    return "argument should be an array";
+  }
+
+  if (arr.length < 2) {
+    return arr;
+  }
+  let newArr = shuffleArray(arr);
   return newArr.slice(0, 5);
 };
