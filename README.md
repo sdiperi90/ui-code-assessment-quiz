@@ -18,7 +18,7 @@ npm test
 
 # PostMVP
 
-1. Increase the Unit and Integration test converage along with implementing end to end testing with cypress.
+1. Increase the Unit and Integration test coverage along with implementing end to end testing with cypress.
 
 2. Expand functionality to allow users to select quizzes based on difficulty level or category type.
 
