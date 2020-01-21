@@ -13,7 +13,7 @@ const ScLabel = styled.label`
   font: 1rem "Fira Sans", sans-serif;
 `;
 
-export default function RadioButton({ id, name, value, onChange }) {
+export default function RadioButton({ id, name, value, onChange, checked }) {
   return (
     <ScContainer>
       <ScInput
@@ -22,6 +22,7 @@ export default function RadioButton({ id, name, value, onChange }) {
         id={id}
         name={name}
         value={value}
+        checked={checked}
       />
       <ScLabel htmlFor={id} dangerouslySetInnerHTML={{ __html: value }} />
     </ScContainer>

@@ -83,7 +83,7 @@ class Multiple extends Component {
                 key={index}
                 name={"option"}
                 value={item}
-                checked={false}
+                checked={this.state.answer === item}
               />
             );
           })}

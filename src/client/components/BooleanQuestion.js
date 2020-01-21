@@ -11,13 +11,21 @@ class BooleanQuestion extends Component {
     answer: ""
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.questionNumber !== this.props.questionNumber) {
+      this.setState({
+        answer: ""
+      });
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     let questionsAnswered = this.props.questionsAnswered;
     let correct = this.props.correct;
     let wrong = this.props.wrong;
     let answer = this.state.answer;
-    let { correct_answer, incorrect_answers } = this.props.currentQuestion;
+    let { correct_answer } = this.props.currentQuestion;
     if (answer.length == 0) {
     } else if (answer === correct_answer) {
       correct += 1;
@@ -53,12 +61,14 @@ class BooleanQuestion extends Component {
             id={"boolean-1"}
             name={"boolean"}
             value="True"
+            checked={this.state.answer === "True"}
           />
           <RadioButton
             onChange={this.handleOnChange}
             id={"boolean-2"}
             name={"boolean"}
             value="False"
+            checked={this.state.answer === "False"}
           />
 
           <ScButton type="submit">Next</ScButton>

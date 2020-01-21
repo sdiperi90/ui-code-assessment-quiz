@@ -9,6 +9,13 @@ class TextQuestion extends Component {
   state = {
     answer: ""
   };
+  componentDidUpdate(prevProps) {
+    if (prevProps.questionNumber !== this.props.questionNumber) {
+      this.setState({
+        answer: ""
+      });
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault();
