@@ -4,8 +4,12 @@ import { ScButton } from "./elements/Button";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 class Summary extends Component {
+  getPercentage() {
+    let { correct, totalQuestions } = this.props;
+    return Math.floor((correct / totalQuestions) * 100) + "%";
+  }
   render() {
-    let { correct, wrong, totalQuestions, questionsAnswered } = this.props;
+    let { correct, wrong, questionsAnswered } = this.props;
     return (
       <div>
         <ScH1>SUMMARY</ScH1>
@@ -19,7 +23,7 @@ class Summary extends Component {
           Questions answered: <ScStrong>{questionsAnswered}</ScStrong>
         </ScP>
         <ScP>
-          Final Score: <ScStrong>{correct / totalQuestions}</ScStrong>
+          Final Score: <ScStrong>{this.getPercentage()}</ScStrong>
         </ScP>
         <ScButton onClick={this.props.getQuestions}>Restart Quiz</ScButton>
       </div>
@@ -29,12 +33,10 @@ class Summary extends Component {
 
 const mapStateToProps = state => {
   return {
-    quizQuestions: state.quiz.quizQuestions,
     correct: state.quiz.correct,
     wrong: state.quiz.wrong,
     questionsAnswered: state.quiz.questionsAnswered,
-    totalQuestions: state.quiz.totalQuestions,
-    questionNumber: state.quiz.questionNumber
+    totalQuestions: state.quiz.totalQuestions
   };
 };
 
