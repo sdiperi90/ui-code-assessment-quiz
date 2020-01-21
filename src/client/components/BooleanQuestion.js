@@ -19,11 +19,12 @@ class BooleanQuestion extends Component {
     let answer = this.state.answer;
     let { correct_answer, incorrect_answers } = this.props.currentQuestion;
     if (answer.length == 0) {
-      questionsAnswered += 1;
     } else if (answer === correct_answer) {
       correct += 1;
+      questionsAnswered += 1;
     } else {
       wrong += 1;
+      questionsAnswered += 1;
     }
 
     this.props.nextQuestion({ correct, wrong, questionsAnswered });

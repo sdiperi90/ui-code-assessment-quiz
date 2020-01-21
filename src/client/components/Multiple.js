@@ -23,6 +23,20 @@ class Multiple extends Component {
       shuffledAnswers
     });
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.questionNumber !== this.props.questionNumber) {
+      let { correct_answer, incorrect_answers } = this.props.currentQuestion;
+      let shuffledAnswers = shuffleArray([
+        ...incorrect_answers,
+        correct_answer
+      ]);
+
+      this.setState({
+        shuffledAnswers,
+        answer: ""
+      });
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -32,11 +46,12 @@ class Multiple extends Component {
     let answer = this.state.answer;
     let { correct_answer, incorrect_answers } = this.props.currentQuestion;
     if (answer.length == 0) {
-      questionsAnswered += 1;
     } else if (answer === correct_answer) {
       correct += 1;
+      questionsAnswered += 1;
     } else {
       wrong += 1;
+      questionsAnswered += 1;
     }
 
     this.props.nextQuestion({ correct, wrong, questionsAnswered });
@@ -68,6 +83,7 @@ class Multiple extends Component {
                 key={index}
                 name={"option"}
                 value={item}
+                checked={false}
               />
             );
           })}
@@ -82,7 +98,8 @@ const mapStateToProps = state => {
   return {
     correct: state.quiz.correct,
     wrong: state.quiz.wrong,
-    questionsAnswered: state.quiz.questionsAnswered
+    questionsAnswered: state.quiz.questionsAnswered,
+    questionNumber: state.quiz.questionNumber
   };
 };
 
